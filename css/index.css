@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.intro-title {
+  font-size: 3em;
+  text-align: center;
+}
+
+.space {
+  margin-top: 80px; margin-bottom: 80px;
+}
+
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ************************************************* */
+/* Section */
+.section {
+  clear: both;
+  margin: 0px;
+  padding: 0px;
+}
+/* Column */
+.col {
+  background: #FFFFFF;
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0 !important; }
+
+/* Row */
+.row:before,
+.row:after { content:""; display:table; }
+.row:after { clear:both;}
+.row { zoom:1; /* For IE 6/7 */ }
+
+/* Grid */
+.grid_1_of_3{ width: 32.267% }
+.grid_2_of_3{ width: 66.133% }
+.grid_3_of_3{ width: 100% }
+
+/* Full Width below 768 pixels */
+@media only screen and (max-width: 768px) {
+  .col {  margin: 1% 0 1% 0%; }
+  [class*='grid_'] { width: 100%; }
+}
+/* **************************************** */
+/*intro banner social media links*/
+.container-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "social-media1 social-media2 social-media3";
+}
+.social-media1 { grid-area: social-media1; }
+.social-media2 { grid-area: social-media2; }
+.social-media3 { grid-area: social-media3; }
+
+@media(max-width: 768px){
+  .container-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "social-media1"
+    "social-media2"
+    "social-media3";
+  }
+  .social-media1 { grid-area: social-media1; }
+  .social-media2 { grid-area: social-media2; }
+  .social-media3 { grid-area: social-media3; }
+}
+/********************************************/
+/* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-box {
+  background-color: transparent;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  /* border: 1px solid #f1f1f1; */
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-box-front {
+  background-color: #FFFFFF;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: rgb(180, 174, 174);
+  color: black;
+  transform: rotateY(180deg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-wrapper {
+  position: relative;
+  mask-size: auto;
+  left: 110px;
+  top: 50px;
+  width: 100%;
+  opacity: 0.6;
+}
+
+@media(max-width: 768px){
+  .card-wrapper {
+    position: static;
+    width: 100%;
+    opacity: 0.9;
+    margin: 15px;
+  }
+  .max {
+    width: 100%;
+    max-height: 650px;
+  }
+}
